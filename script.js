@@ -17,12 +17,12 @@
     const auth = firebase.auth();
     const database = firebase.database();
 
-    const btn_signup = document.getElementById("btn-signup");
-    const btn_signin = document.getElementById("btn-signin");
-    btn_signup.addEventListener("submit",(event)=>{
-      event.preventDefault
-        let email = document.getElementById("email").value();
-        let password = document.getElementById("password").value();
+    const btnSignup = document.getElementById("btn-signup");
+    const btnSignin = document.getElementById("btn-signin");
+    btnSignup?.addEventListener("click",(event)=>{
+      event.preventDefault()
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
     //sign up user
         auth.createUserWithEmailAndPassword(email,password)
         .then(userCredential=>{ 
