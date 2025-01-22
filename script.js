@@ -102,24 +102,32 @@ document.addEventListener('DOMContentLoaded', function() {
           console.error('The HTML element to display the birthday message is missing.');
           return;
       }
-  
+      
       const today = new Date();
       today.setHours(0, 0, 0, 0);
+    
       const birthDate = new Date(dob);
+      // const utcDate = new Date(birthDate.getTime() + birthDate.getTimezoneOffset()*6000).toISOString()
+      // console.log(utcDate, "ABC")
+
+      
+
+
+      console.log(dob);
       birthDate.setHours(0, 0, 0, 0);
-  
-      // Normalize today's date for comparison
-      const todayDateOnly = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-      const currentYearBirthday = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+      console.log(birthDate)
+      
+      const todayDateOnly = new Date(today.getFullYear(), today.getMonth() , today.getDate());
+      const currentYearBirthday = new Date(today.getFullYear(), birthDate.getMonth() , birthDate.getDate()+1);
   
       if (todayDateOnly.getTime() === currentYearBirthday.getTime()) {
-          // Fetch a random quote from the Advice Slip API
+          
           fetch('https://api.adviceslip.com/advice')
               .then(response => response.json())
               .then(data => {
-                  // API returns an object with a 'slip' property containing the advice
-                  const advice = data.slip.advice; // Correctly accessing the advice
-                  element.innerHTML = `Happy Birthday, ${name}!<br>"${advice}"`; // No author is provided by this API
+                
+                  const advice = data.slip.advice; 
+                  element.innerHTML = `Happy Birthday, ${name}!<br>"${advice}"`; 
               })
               .catch(error => {
                   console.error('Error fetching quotes:', error);
