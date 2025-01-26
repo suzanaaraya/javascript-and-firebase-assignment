@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayBirthdayMessage(dob, name) {
       const element = document.getElementById('birthday-message');
       if (!element) {
-          console.error('The HTML element to display the birthday message is missing.');
+          // console.error('The HTML element to display the birthday message is missing.');
           return;
       }
       
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log(birthDate)
       
       const todayDateOnly = new Date(today.getFullYear(), today.getMonth() , today.getDate());
-      const currentYearBirthday = new Date(today.getFullYear(), birthDate.getMonth() , birthDate.getDate()+1);
+      const currentYearBirthday = new Date(today.getFullYear(), birthDate.getMonth() , birthDate.getDate());
   
       if (todayDateOnly.getTime() === currentYearBirthday.getTime()) {
           
