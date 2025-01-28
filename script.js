@@ -98,21 +98,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function displayBirthdayMessage(dob, name) {
       const element = document.getElementById('birthday-message');
-      if (!element) {
-          // console.error('The HTML element to display the birthday message is missing.');
-          return;
-      }
-      
+    
       const today = new Date();
       today.setHours(0, 0, 0, 0);
     
       const birthDate = new Date(dob);
-      // const utcDate = new Date(birthDate.getTime() + birthDate.getTimezoneOffset()*6000).toISOString()
-      // console.log(utcDate, "ABC")
-
       
-
-
       console.log(dob);
       birthDate.setHours(0, 0, 0, 0);
       console.log(birthDate)
@@ -143,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   
-    btnSignout.addEventListener("click",()=>{
+    btnSignout?.addEventListener("click",()=>{
       auth.signOut().then(()=>{
           console.log('user signed out')
           window.location.href ="index.html"
